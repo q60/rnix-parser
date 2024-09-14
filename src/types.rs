@@ -45,6 +45,7 @@ macro_rules! nth {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
 pub enum BinOpKind {
     Concat,
+    Pipe,
     IsSet,
     Update,
 
@@ -68,6 +69,7 @@ impl BinOpKind {
     pub fn from_token(token: SyntaxKind) -> Option<Self> {
         match token {
             TOKEN_CONCAT => Some(BinOpKind::Concat),
+            TOKEN_PIPE => Some(BinOpKind::Pipe),
             TOKEN_QUESTION => Some(BinOpKind::IsSet),
             TOKEN_UPDATE => Some(BinOpKind::Update),
 

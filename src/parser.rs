@@ -730,10 +730,13 @@ where
     fn parse_implication(&mut self) -> Checkpoint {
         self.handle_operation(false, Self::parse_or, &[TOKEN_IMPLICATION])
     }
+    fn parse_pipe(&mut self) -> Checkpoint {
+        self.handle_operation(false, Self::parse_implication, &[TOKEN_PIPE])
+    }
     #[inline(always)]
     fn parse_math(&mut self) -> Checkpoint {
         // Always point this to the lowest-level math function there is
-        self.parse_implication()
+        self.parse_pipe()
     }
     /// Parse Nix code into an AST
     pub fn parse_expr(&mut self) -> Checkpoint {

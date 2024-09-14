@@ -36,6 +36,7 @@ pub enum SyntaxKind {
     TOKEN_PAREN_OPEN,
     TOKEN_PAREN_CLOSE,
     TOKEN_CONCAT,
+    TOKEN_PIPE,
     TOKEN_INVERT,
     TOKEN_UPDATE,
 

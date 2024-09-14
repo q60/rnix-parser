@@ -352,6 +352,10 @@ impl<'a> Iterator for Tokenizer<'a> {
                 self.next().unwrap();
                 Some((TOKEN_CONCAT, self.string_since(start)))
             }
+            '|' if self.peek() == Some('>') => {
+                self.next().unwrap();
+                Some((TOKEN_PIPE, self.string_since(start)))
+            }
             '-' if self.peek() == Some('>') => {
                 self.next().unwrap();
                 Some((TOKEN_IMPLICATION, self.string_since(start)))
